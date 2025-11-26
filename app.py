@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 students = []
-
+@app.route('/')
 @app.route('/students', methods=['GET'])
 def get_students():
     return jsonify(students)
@@ -25,4 +25,7 @@ def delete_student(index):
     return jsonify({'message': 'Student deleted'})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(debug=True)
+
+
+
